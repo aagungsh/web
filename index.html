@@ -2,17 +2,16 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>web1</title>
+	<title>backup</title>
 	<style>
 		body {font-family: sans-serif;
 		margin: 5%}
 	</style>
-</head>
-<body>
-<h2>abc</h2>
+
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-database.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -24,6 +23,7 @@
   var firebaseConfig = {
     apiKey: "AIzaSyB6hOOp37sz0E9SDnXhMC8oaBuzJ5ZM9k4",
     authDomain: "web1-976a5.firebaseapp.com",
+    databaseURL: "https://web1-976a5-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "web1-976a5",
     storageBucket: "web1-976a5.appspot.com",
     messagingSenderId: "1039487905863",
@@ -33,7 +33,21 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
+
+  const db = firebase.database()
+  const blogRef = db.ref('blogs').on('value', handleSuccess, handleError)
+
+  function handleSuccess(items) {
+    console.log(items.val())
+  }
+  function handleError(error) {
+    console.log(error)
+  }
 </script>
 
+</head>
+<body>
+<h2>backup</h2>
+<a href="https://backup30.blogspot.com/2021/07/firebase-realtime-database-web-view.html">link</a>
 </body>
 </html>
